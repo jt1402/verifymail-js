@@ -1,7 +1,7 @@
 /**
  * Official SDK for the VerifyMail API.
  *
- *   import { VerifyMail } from "verifymail";
+ *   import { VerifyMail } from "verifymailapi";
  *   const vm = new VerifyMail({ apiKey: process.env.VERIFYMAIL_KEY! });
  *   const r = await vm.check("user@example.com");
  *   if (r.verdict.recommendation === "block") { ... }

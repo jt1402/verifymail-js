@@ -72,7 +72,7 @@ export class HttpClient {
     const h = new Headers(opts.headers);
     h.set("X-API-Key", this.apiKey);
     h.set("Accept", "application/json");
-    h.set("User-Agent", "verifymail-js/0.1.0");
+    h.set("User-Agent", "verifymailapi-js/0.1.1");
     if (opts.body !== undefined) h.set("Content-Type", "application/json");
 
     const profile = opts.riskProfile ?? this.defaultRiskProfile;

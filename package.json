@@ -1,6 +1,6 @@
 {
-  "name": "verifymail",
-  "version": "0.1.0",
+  "name": "verifymailapi",
+  "version": "0.1.1",
   "description": "Official SDK for the VerifyMail API — disposable, throwaway, and abusive email detection.",
   "license": "MIT",
   "homepage": "https://verifymailapi.com",
