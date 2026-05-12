@@ -43,11 +43,14 @@ jobs:
       - name: Build
         run: npm run build
 
-      # Auth is via npm Trusted Publisher (OIDC) — no NPM_TOKEN needed.
-      # `--provenance` enables the OIDC flow + shows a green verified badge
-      # on the npm package page.
+      # Token-based publish — fall-back while Trusted Publisher debug is in
+      # progress. To switch back to OIDC: remove NODE_AUTH_TOKEN below and
+      # confirm the npm Trusted Publisher form has the exact repo + workflow
+      # filename.
       - name: Publish to npm
-        run: npm publish --access public --provenance
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
