@@ -43,12 +43,11 @@ jobs:
       - name: Build
         run: npm run build
 
-      # `--provenance` cryptographically attests that this build came from
-      # this exact GitHub Actions run. Shows a green badge on npm.
+      # Auth is via npm Trusted Publisher (OIDC) — no NPM_TOKEN needed.
+      # `--provenance` enables the OIDC flow + shows a green verified badge
+      # on the npm package page.
       - name: Publish to npm
         run: npm publish --access public --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
