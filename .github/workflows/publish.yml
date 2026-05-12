@@ -43,10 +43,12 @@ jobs:
       - name: Build
         run: npm run build
 
-      # `--provenance` cryptographically attests that this build came from
-      # this exact GitHub Actions run. Shows a green badge on npm.
+      # Token-based publish — fall-back while Trusted Publisher debug is in
+      # progress. To switch back to OIDC: remove NODE_AUTH_TOKEN below and
+      # confirm the npm Trusted Publisher form has the exact repo + workflow
+      # filename.
       - name: Publish to npm
-        run: npm publish --access public --provenance
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
